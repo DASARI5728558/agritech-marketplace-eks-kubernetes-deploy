@@ -1,0 +1,62 @@
+environment: prod
+
+backend:
+  image:
+    repository: <account-id>.dkr.ecr.ap-south-1.amazonaws.com/agritech-prod-agritech-backend
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicaCount: 3
+  port: 8080
+  resources:
+    requests:
+      cpu: 250m
+      memory: 512Mi
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+  env:
+    SPRING_PROFILES_ACTIVE: prod
+  hpa:
+    enabled: true
+    minReplicas: 3
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 70
+
+frontend:
+  image:
+    repository: <account-id>.dkr.ecr.ap-south-1.amazonaws.com/agritech-prod-agritech-frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicaCount: 2
+  port: 80
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 256Mi
+  hpa:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 6
+    targetCPUUtilizationPercentage: 70
+
+ingress:
+  enabled: true
+  className: nginx
+  host: www.agritech-marketplace.com
+  tls:
+    enabled: true
+    secretName: agritech-tls-cert
+
+database:
+  host: agritech-prod-mysql.xxxxxxxxxx.ap-south-1.rds.amazonaws.com
+  port: 3306
+  name: agritech_prod
+  secretName: agritech-db-secret
+
+monitoring:
+  serviceMonitor:
+    enabled: true
+    interval: 30s

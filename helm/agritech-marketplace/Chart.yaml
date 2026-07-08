@@ -1,0 +1,12 @@
+apiVersion: v2
+name: agritech-marketplace
+description: Helm chart for the AgriTech Marketplace (Spring Boot backend + Nginx frontend)
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+keywords:
+  - agritech
+  - marketplace
+  - ecommerce
+maintainers:
+  - name: AgriTech Platform Team

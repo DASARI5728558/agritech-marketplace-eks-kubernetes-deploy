@@ -1,0 +1,27 @@
+# Java / Maven
+backend/target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraform.lock.hcl
+crash.log
+
+# Helm
+helm/**/charts/
+helm/**/*.tgz
+
+# Node (if tooling added later)
+node_modules/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+*.swp

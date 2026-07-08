@@ -1,0 +1,6 @@
+aws_region             = "ap-south-1"
+azs                     = ["ap-south-1a", "ap-south-1b"]
+mysql_admin_password    = "CHANGE_ME_STRONG_PASSWORD"
+dns_zone_name           = "agritech-marketplace.com"
+create_dns_zone         = true
+load_balancer_dns_name  = ""   # fill in after ingress-nginx LoadBalancer is provisioned

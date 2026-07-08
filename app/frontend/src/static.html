@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriTech Marketplace</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body data-page="home">
+  <header class="topbar">
+    <a class="brand" href="static.html">
+      <span class="brand-mark">
+        <i class="fa-solid fa-seedling"></i>
+      </span>
+      <span>
+        <strong>AgriTech Marketplace</strong>
+        <small>AI crop-input recommendations</small>
+      </span>
+    </a>
+
+    <nav class="nav">
+      <a href="static.html" class="active">
+        <i class="fa-solid fa-house"></i> Home
+      </a>
+      <a href="pages/login.html">
+        <i class="fa-solid fa-right-to-bracket"></i> Login
+      </a>
+      <a href="pages/register.html">
+        <i class="fa-solid fa-user-plus"></i> Register
+      </a>
+      <a href="pages/cart.html" class="cart-link">
+        <i class="fa-solid fa-basket-shopping"></i>
+        Cart
+        <span id="cartCount">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-copy">
+        <span class="pill">
+          <i class="fa-solid fa-robot"></i>
+          AI-Powered AgriTech Store
+        </span>
+
+        <h1>Right product for the right crop stage.</h1>
+
+        <p>
+          Discover compost, neem spray, vermicompost, bio-fertilizers and
+          crop-specific care kits recommended for farmers and agri-consultants.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#catalog" class="btn btn-primary">
+            Explore products
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="pages/cart.html" class="btn btn-secondary">
+            <i class="fa-solid fa-basket-shopping"></i>
+            View cart
+          </a>
+        </div>
+
+        <div class="trust-row">
+          <span><i class="fa-solid fa-circle-check"></i> Organic inputs</span>
+          <span><i class="fa-solid fa-truck-fast"></i> Farmer-ready demo</span>
+          <span><i class="fa-solid fa-shield-heart"></i> Crop-safe choices</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-image-card">
+          <img
+            src="assets/images/hero-banner.jpg"
+            alt="Farmer checking crop recommendations"
+            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1000&q=80';"
+          />
+
+          <div class="floating-card">
+            <span class="floating-icon">
+              <i class="fa-solid fa-sparkles"></i>
+            </span>
+            <div>
+              <strong>Smart crop match</strong>
+              <small>Tomato flowering support found</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="crop-mini-grid">
+          <article>
+            <i class="fa-solid fa-apple-whole"></i>
+            <span>Tomato</span>
+          </article>
+          <article>
+            <i class="fa-solid fa-carrot"></i>
+            <span>Potato</span>
+          </article>
+          <article>
+            <i class="fa-solid fa-wheat-awn"></i>
+            <span>Wheat</span>
+          </article>
+          <article>
+            <i class="fa-solid fa-tree"></i>
+            <span>Orchard</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats container">
+      <article>
+        <i class="fa-solid fa-layer-group"></i>
+        <strong>6+</strong>
+        <span>Crop categories</span>
+      </article>
+      <article>
+        <i class="fa-solid fa-leaf"></i>
+        <strong>100%</strong>
+        <span>Organic-focused demo</span>
+      </article>
+      <article>
+        <i class="fa-solid fa-bolt"></i>
+        <strong>Fast</strong>
+        <span>Static frontend</span>
+      </article>
+      <article>
+        <i class="fa-solid fa-cart-shopping"></i>
+        <strong>Local</strong>
+        <span>Cart storage</span>
+      </article>
+    </section>
+
+    <section class="catalog container" id="catalog">
+      <div class="section-head">
+        <div>
+          <span class="pill soft">
+            <i class="fa-solid fa-store"></i>
+            Product Catalog
+          </span>
+          <h2>Crop-based recommendations</h2>
+          <p>Search and filter products by crop, ingredient, category or stage.</p>
+        </div>
+
+        <div class="searchbox">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search tomato, neem, compost..."
+          />
+        </div>
+      </div>
+
+      <div class="filterbar" id="filterBar">
+        <button class="chip active" data-filter="all">
+          <i class="fa-solid fa-border-all"></i> All
+        </button>
+        <button class="chip" data-filter="tomato">
+          <i class="fa-solid fa-apple-whole"></i> Tomato
+        </button>
+        <button class="chip" data-filter="potato">
+          <i class="fa-solid fa-carrot"></i> Potato
+        </button>
+        <button class="chip" data-filter="grapes">
+          <i class="fa-solid fa-shield-halved"></i> Grapes
+        </button>
+        <button class="chip" data-filter="wheat">
+          <i class="fa-solid fa-wheat-awn"></i> Wheat
+        </button>
+        <button class="chip" data-filter="leafy">
+          <i class="fa-solid fa-leaf"></i> Leafy greens
+        </button>
+        <button class="chip" data-filter="orchard">
+          <i class="fa-solid fa-tree"></i> Orchards
+        </button>
+      </div>
+
+      <div class="grid" id="productGrid"></div>
+    </section>
+
+    <section class="highlight container">
+      <div class="section-head simple">
+        <div>
+          <span class="pill soft">
+            <i class="fa-solid fa-star"></i>
+            Why it looks premium
+          </span>
+          <h2>Designed for a clean marketplace experience</h2>
+        </div>
+      </div>
+
+      <div class="highlight-grid">
+        <article>
+          <i class="fa-solid fa-image"></i>
+          <h3>Image-led cards</h3>
+          <p>Each product is visually clear and easy to scan quickly.</p>
+        </article>
+
+        <article>
+          <i class="fa-solid fa-window-restore"></i>
+          <h3>Modal preview</h3>
+          <p>Product details open beautifully without leaving the page.</p>
+        </article>
+
+        <article>
+          <i class="fa-solid fa-database"></i>
+          <h3>Local cart</h3>
+          <p>The cart uses browser storage, so the demo works smoothly.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>
+        <i class="fa-solid fa-seedling"></i>
+        AgriTech Marketplace — Premium static frontend with image and icon support.
+      </p>
+    </div>
+  </footer>
+
+  <div class="modal hidden" id="productModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="closeModal" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

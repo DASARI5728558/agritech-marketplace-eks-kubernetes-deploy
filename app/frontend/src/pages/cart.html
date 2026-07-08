@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart - AgriTech Marketplace</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body data-page="cart">
+  <header class="topbar">
+    <a class="brand" href="../static.html">
+      <span class="brand-mark">
+        <i class="fa-solid fa-seedling"></i>
+      </span>
+      <span>
+        <strong>AgriTech Marketplace</strong>
+        <small>Cart summary</small>
+      </span>
+    </a>
+
+    <nav class="nav">
+      <a href="../static.html">
+        <i class="fa-solid fa-house"></i> Home
+      </a>
+      <a href="login.html">
+        <i class="fa-solid fa-right-to-bracket"></i> Login
+      </a>
+      <a href="register.html">
+        <i class="fa-solid fa-user-plus"></i> Register
+      </a>
+      <a href="cart.html" class="active cart-link">
+        <i class="fa-solid fa-basket-shopping"></i>
+        Cart
+        <span id="cartCount">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="cart-page container">
+    <div class="section-head simple">
+      <div>
+        <span class="pill soft">
+          <i class="fa-solid fa-basket-shopping"></i>
+          Shopping Cart
+        </span>
+        <h2>Your selected crop-care products</h2>
+        <p>Increase, decrease or remove products from your cart.</p>
+      </div>
+    </div>
+
+    <section class="cart-layout">
+      <div class="cart-list" id="cartList"></div>
+
+      <aside class="checkout-card">
+        <span class="pill">
+          <i class="fa-solid fa-receipt"></i>
+          Order Summary
+        </span>
+
+        <div class="checkout-line">
+          <span>Subtotal</span>
+          <strong id="cartSubtotal">₹0</strong>
+        </div>
+
+        <div class="checkout-line">
+          <span>Delivery</span>
+          <strong id="cartDelivery">₹0</strong>
+        </div>
+
+        <div class="checkout-line total">
+          <span>Total</span>
+          <strong id="cartTotal">₹0</strong>
+        </div>
+
+        <div class="hero-actions">
+          <a href="../static.html" class="form-btn secondary">
+            <i class="fa-solid fa-store"></i>
+            Continue shopping
+          </a>
+
+          <button
+            class="form-btn primary"
+            onclick="alert('Checkout demo only')"
+          >
+            <i class="fa-solid fa-credit-card"></i>
+            Checkout
+          </button>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+environment: dev
+
+backend:
+  image:
+    repository: <account-id>.dkr.ecr.ap-south-1.amazonaws.com/agritech-dev-agritech-backend
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicaCount: 1
+  port: 8080
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  env:
+    SPRING_PROFILES_ACTIVE: dev
+  hpa:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 3
+    targetCPUUtilizationPercentage: 75
+
+frontend:
+  image:
+    repository: <account-id>.dkr.ecr.ap-south-1.amazonaws.com/agritech-dev-agritech-frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicaCount: 1
+  port: 80
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 250m
+      memory: 128Mi
+  hpa:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 3
+    targetCPUUtilizationPercentage: 75
+
+ingress:
+  enabled: true
+  className: nginx
+  host: dev.agritech-marketplace.local
+  tls:
+    enabled: false
+
+database:
+  host: agritech-dev-mysql.xxxxxxxxxx.ap-south-1.rds.amazonaws.com
+  port: 3306
+  name: agritech_dev
+  # secretName references a Kubernetes Secret containing DB_USERNAME and DB_PASSWORD
+  secretName: agritech-db-secret
+
+monitoring:
+  serviceMonitor:
+    enabled: false

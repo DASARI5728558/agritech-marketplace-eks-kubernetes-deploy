@@ -1,0 +1,3 @@
+aws_region            = "ap-south-1"
+azs                    = ["ap-south-1a", "ap-south-1b"]
+mysql_admin_password   = "CHANGE_ME_STRONG_PASSWORD"
