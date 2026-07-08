@@ -39,8 +39,8 @@ jobs:
         working-directory: app/backend
         run: mvn -B clean verify
 
-# ---------------------------------------------------------------
-frontend-lint:
+ # ---------------------------------------------------------------
+ frontend-lint:  
   name: Build Frontend
   runs-on: ubuntu-latest
 
