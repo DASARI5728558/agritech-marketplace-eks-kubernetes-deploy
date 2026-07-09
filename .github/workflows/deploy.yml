@@ -129,8 +129,8 @@ jobs:
       - name: Ensure namespace exists
         run: |
           aws eks update-kubeconfig \
-            --region ${{ env.AWS_REGION }} \
-            --name agritech-${{ steps.env.outputs.name }}-eks
+           --region ${{ env.AWS_REGION }} \
+           --name agritech-dev-eks
           kubectl apply -f k8s/namespace.yaml
 
       - name: Set up Helm
