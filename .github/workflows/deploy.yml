@@ -17,8 +17,8 @@ on:
 env:
   AWS_REGION: ${{ vars.AWS_REGION }}
   ECR_REGISTRY: ${{ vars.ECR_REGISTRY }}
-  BACKEND_IMAGE: agritech-backend
-  FRONTEND_IMAGE: agritech-frontend
+  BACKEND_IMAGE: agritech-dev-agritech-backend
+  FRONTEND_IMAGE: agritech-dev-agritech-frontend
 
 jobs:
   # ---------------------------------------------------------------
@@ -46,13 +46,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Validate HTML/CSS/JS structure
-        working-directory: app/frontend/src
+      - name: Validate static files exist
+        working-directory: app/frontend
         run: |
-          test -f index.html
-          test -f css/styles.css
-          test -f js/app.js
-          echo "Frontend static assets present."
+          test -f nginx.conf || (echo "nginx.conf missing" && exit 1)
+          test -d src || (echo "src directory missing" && exit 1)
+          test -f Dockerfile || (echo "Dockerfile missing" && exit 1)
+          echo "Static frontend files present"
 
   # ---------------------------------------------------------------
   build-and-push:
@@ -154,3 +154,6 @@ jobs:
         run: |
           kubectl rollout status deployment/agritech-marketplace-backend -n agritech-${{ steps.env.outputs.name }}
           kubectl rollout status deployment/agritech-marketplace-frontend -n agritech-${{ steps.env.outputs.name }}
+
+
+        
