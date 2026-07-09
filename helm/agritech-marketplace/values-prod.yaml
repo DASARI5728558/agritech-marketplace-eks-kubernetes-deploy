@@ -58,5 +58,5 @@ database:
 
 monitoring:
   serviceMonitor:
-    enabled: true
+    enabled: false
     interval: 30s
