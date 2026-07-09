@@ -17,8 +17,8 @@ on:
 env:
   AWS_REGION: ${{ vars.AWS_REGION }}
   ECR_REGISTRY: ${{ vars.ECR_REGISTRY }}
-  BACKEND_IMAGE: agritech-backend
-  FRONTEND_IMAGE: agritech-frontend
+  BACKEND_IMAGE: agritech-dev-agritech-backend
+  FRONTEND_IMAGE: agritech-dev-agritech-frontend
 
 jobs:
   # ---------------------------------------------------------------
