@@ -65,6 +65,7 @@ module "eks" {
   min_size            = 3
   max_size            = 10
   tags                = local.tags
+  github_actions_role_arn = var.github_actions_role_arn
 }
 
 data "aws_eks_cluster" "this" {

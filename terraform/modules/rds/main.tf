@@ -36,7 +36,7 @@ resource "aws_db_instance" "this" {
   db_subnet_group_name   = var.db_subnet_group_name
   vpc_security_group_ids = [aws_security_group.rds.id]
   multi_az               = var.multi_az
-  backup_retention_period = 1
+  backup_retention_period = 7
   skip_final_snapshot    = var.skip_final_snapshot
   publicly_accessible    = false
   storage_encrypted      = true

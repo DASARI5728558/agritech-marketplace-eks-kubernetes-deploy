@@ -8,7 +8,7 @@ variable "cluster_name" {
 
 variable "kubernetes_version" {
   type    = string
-  default = "1.36"
+  default = "1.29"
 }
 
 variable "private_subnet_ids" {
@@ -21,7 +21,7 @@ variable "public_subnet_ids" {
 
 variable "instance_types" {
   type    = list(string)
-  default = ["t3.micro"]
+  default = ["t3.medium"]
 }
 
 variable "capacity_type" {
@@ -48,4 +48,10 @@ variable "max_size" {
 variable "tags" {
   type    = map(string)
   default = {}
+}
+
+variable "github_actions_role_arn" {
+  description = "ARN of the IAM role used by GitHub Actions CI/CD (e.g. arn:aws:iam::<account-id>:role/github-actions-agritech-role). Leave empty (\"\") to skip granting access automatically."
+  type        = string
+  default     = ""
 }

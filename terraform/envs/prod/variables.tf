@@ -29,3 +29,9 @@ variable "load_balancer_dns_name" {
   type        = string
   default     = ""
 }
+
+variable "github_actions_role_arn" {
+  description = "ARN of the IAM role used by GitHub Actions CI/CD (from scripts/setup-github-oidc.sh output). Leave empty to skip automatic EKS access grant."
+  type        = string
+  default     = ""
+}

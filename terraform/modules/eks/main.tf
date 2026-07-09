@@ -31,6 +31,14 @@ resource "aws_eks_cluster" "this" {
     endpoint_public_access  = true
   }
 
+  # API_AND_CONFIG_MAP enables the modern `aws eks create-access-entry` /
+  # `aws eks associate-access-policy` workflow (needed for CI/CD roles like
+  # GitHub Actions) while still supporting the legacy aws-auth ConfigMap.
+  access_config {
+    authentication_mode                         = "API_AND_CONFIG_MAP"
+    bootstrap_cluster_creator_admin_permissions = true
+  }
+
   tags = var.tags
 
   depends_on = [aws_iam_role_policy_attachment.cluster_policy]
@@ -103,4 +111,27 @@ resource "aws_iam_openid_connect_provider" "eks" {
   url             = aws_eks_cluster.this.identity[0].oidc[0].issuer
 
   tags = var.tags
+}
+
+# ---- Grant the GitHub Actions CI/CD role cluster-admin access via EKS access entries ----
+# Replaces the manual `aws eks create-access-entry` / `aws eks associate-access-policy`
+# CLI commands — this runs automatically on every `terraform apply`.
+resource "aws_eks_access_entry" "github_actions" {
+  count         = var.github_actions_role_arn != "" ? 1 : 0
+  cluster_name  = aws_eks_cluster.this.name
+  principal_arn = var.github_actions_role_arn
+  type          = "STANDARD"
+}
+
+resource "aws_eks_access_policy_association" "github_actions_admin" {
+  count         = var.github_actions_role_arn != "" ? 1 : 0
+  cluster_name  = aws_eks_cluster.this.name
+  principal_arn = var.github_actions_role_arn
+  policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+
+  access_scope {
+    type = "cluster"
+  }
+
+  depends_on = [aws_eks_access_entry.github_actions]
 }
