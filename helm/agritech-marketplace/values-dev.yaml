@@ -24,7 +24,7 @@ backend:
 
 frontend:
   image:
-    repository: <account-id>.dkr.ecr.ap-south-1.amazonaws.com/agritech-dev-agritech-frontend
+    repository: 454921778519.dkr.ecr.ap-south-1.amazonaws.com/agritech-dev-agritech-frontend
     tag: latest
     pullPolicy: IfNotPresent
   replicaCount: 1
