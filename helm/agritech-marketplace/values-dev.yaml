@@ -2,7 +2,7 @@ environment: dev
 
 backend:
   image:
-    repository: <account-id>.dkr.ecr.ap-south-1.amazonaws.com/agritech-dev-agritech-backend
+    repository: 454921778519.dkr.ecr.ap-south-1.amazonaws.com/agritech-dev-agritech-backend
     tag: latest
     pullPolicy: IfNotPresent
   replicaCount: 1
