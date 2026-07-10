@@ -7,107 +7,221 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/style.css"/>
 </head>
 
 <body class="auth-body" data-page="register">
-  <header class="topbar">
-    <a class="brand" href="../static.html">
-      <span class="brand-mark">
-        <i class="fa-solid fa-seedling"></i>
-      </span>
-      <span>
-        <strong>AgriTech Marketplace</strong>
-        <small>Create farmer account</small>
-      </span>
+
+<header class="topbar">
+  <a class="brand" href="../static.html">
+    <span class="brand-mark">
+      <i class="fa-solid fa-seedling"></i>
+    </span>
+
+    <span>
+      <strong>AgriTech Marketplace</strong>
+      <small>Create farmer account</small>
+    </span>
+  </a>
+
+  <nav class="nav">
+    <a href="../static.html">
+      <i class="fa-solid fa-house"></i> Home
     </a>
 
-    <nav class="nav">
-      <a href="../static.html">
-        <i class="fa-solid fa-house"></i> Home
-      </a>
-      <a href="login.html">
-        <i class="fa-solid fa-right-to-bracket"></i> Login
-      </a>
-      <a href="register.html" class="active">
-        <i class="fa-solid fa-user-plus"></i> Register
-      </a>
-    </nav>
-  </header>
+    <a href="login.html">
+      <i class="fa-solid fa-right-to-bracket"></i> Login
+    </a>
 
-  <main class="auth-shell container">
-    <section class="auth-panel">
-      <span class="pill">
-        <i class="fa-solid fa-user-plus"></i>
-        New Farmer Account
-      </span>
+    <a href="register.html" class="active">
+      <i class="fa-solid fa-user-plus"></i> Register
+    </a>
+  </nav>
+</header>
 
-      <h1>Start your smart farming journey.</h1>
+<main class="auth-shell container">
 
-      <p>
-        Register to save crops, cart items, recommendations and future order
-        history when backend APIs are connected.
-      </p>
+<section class="auth-panel">
 
-      <div class="auth-benefits">
-        <span><i class="fa-solid fa-circle-check"></i> Personalized crop choices</span>
-        <span><i class="fa-solid fa-circle-check"></i> Save recommendations</span>
-        <span><i class="fa-solid fa-circle-check"></i> Ready for Spring Boot APIs</span>
-      </div>
-    </section>
+<span class="pill">
+<i class="fa-solid fa-user-plus"></i>
+New Farmer Account
+</span>
 
-    <form class="form-card" onsubmit="event.preventDefault(); alert('Demo register UI only');">
-      <h1>Create account</h1>
-      <p>Register to save your crops, cart and preferences.</p>
+<h1>Start your smart farming journey.</h1>
 
-      <div class="form-grid">
-        <label>Full name</label>
-        <div class="input-wrap">
-          <i class="fa-solid fa-user"></i>
-          <input type="text" placeholder="Your name" required />
-        </div>
+<p>
+Register to save your crops, cart items, recommendations and future order
+history when backend APIs are connected.
+</p>
 
-        <label>Email address</label>
-        <div class="input-wrap">
-          <i class="fa-solid fa-envelope"></i>
-          <input type="email" placeholder="farmer@example.com" required />
-        </div>
+<div class="auth-benefits">
+<span><i class="fa-solid fa-circle-check"></i> Personalized crop choices</span>
+<span><i class="fa-solid fa-circle-check"></i> Save recommendations</span>
+<span><i class="fa-solid fa-circle-check"></i> Ready for Spring Boot APIs</span>
+</div>
 
-        <label>Password</label>
-        <div class="input-wrap">
-          <i class="fa-solid fa-lock"></i>
-          <input type="password" placeholder="Create password" required />
-        </div>
+</section>
 
-        <label>Confirm password</label>
-        <div class="input-wrap">
-          <i class="fa-solid fa-shield-halved"></i>
-          <input type="password" placeholder="Repeat password" required />
-        </div>
-      </div>
+<form class="form-card" onsubmit="registerUser(event)">
 
-      <div class="hero-actions">
-        <button class="form-btn primary" type="submit">
-          <i class="fa-solid fa-user-plus"></i>
-          Create account
-        </button>
+<h1>Create account</h1>
 
-        <a class="form-btn secondary" href="../static.html">
-          <i class="fa-solid fa-arrow-left"></i>
-          Back home
-        </a>
-      </div>
-    </form>
-  </main>
+<p>
+Register to save your crops, cart and preferences.
+</p>
+
+<div class="form-grid">
+
+<label>Full name</label>
+
+<div class="input-wrap">
+<i class="fa-solid fa-user"></i>
+
+<input
+id="fullName"
+type="text"
+placeholder="Your name"
+required
+/>
+
+</div>
+
+<label>Email address</label>
+
+<div class="input-wrap">
+<i class="fa-solid fa-envelope"></i>
+
+<input
+id="email"
+type="email"
+placeholder="farmer@example.com"
+required
+/>
+
+</div>
+
+<label>Password</label>
+
+<div class="input-wrap">
+<i class="fa-solid fa-lock"></i>
+
+<input
+id="password"
+type="password"
+placeholder="Create password"
+required
+/>
+
+</div>
+
+<label>Confirm password</label>
+
+<div class="input-wrap">
+<i class="fa-solid fa-shield-halved"></i>
+
+<input
+id="confirmPassword"
+type="password"
+placeholder="Repeat password"
+required
+/>
+
+</div>
+
+</div>
+
+<div class="hero-actions">
+
+<button class="form-btn primary" type="submit">
+<i class="fa-solid fa-user-plus"></i>
+Create account
+</button>
+
+<a class="form-btn secondary" href="../static.html">
+<i class="fa-solid fa-arrow-left"></i>
+Back home
+</a>
+
+</div>
+
+</form>
+
+</main>
+
+<script>
+
+async function registerUser(event){
+
+event.preventDefault();
+
+const password=document.getElementById("password").value;
+const confirmPassword=document.getElementById("confirmPassword").value;
+
+if(password!==confirmPassword){
+
+alert("Passwords do not match");
+
+return;
+
+}
+
+const user={
+
+fullName:document.getElementById("fullName").value,
+
+email:document.getElementById("email").value,
+
+password:password
+
+};
+
+try{
+
+const response=await fetch("http://localhost:8081/api/auth/register",{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify(user)
+
+});
+
+if(response.ok){
+
+alert("Registration Successful");
+
+window.location.href="login.html";
+
+}else{
+
+const message=await response.text();
+
+alert(message);
+
+}
+
+}catch(error){
+
+console.error(error);
+
+alert("Unable to connect to backend.");
+
+}
+
+}
+
+</script>
+
 </body>
 </html>
