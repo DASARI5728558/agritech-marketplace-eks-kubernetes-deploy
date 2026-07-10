@@ -11,20 +11,31 @@ public class HomeController {
 
     @GetMapping("/")
     public Map<String, Object> home() {
-        Map<String, Object> info = new LinkedHashMap<>();
-        info.put("service", "agritech-marketplace-backend");
-        info.put("status", "UP");
-        info.put("endpoints", new String[]{
+
+        Map<String, Object> response = new LinkedHashMap<>();
+
+        response.put("application", "AgriTech Marketplace Backend");
+        response.put("version", "1.0.0");
+        response.put("status", "Running");
+
+        response.put("availableEndpoints", new String[]{
                 "/api/users/register",
                 "/api/users/login",
                 "/api/products",
-                "/api/orders"
+                "/api/orders",
+                "/health"
         });
-        return info;
+
+        return response;
     }
 
     @GetMapping("/health")
     public Map<String, String> health() {
-        return Map.of("status", "OK");
+
+        return Map.of(
+                "status", "UP",
+                "message", "Application is running successfully"
+        );
     }
+
 }
