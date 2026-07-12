@@ -45,7 +45,7 @@ frontend:
 ingress:
   enabled: true
   className: nginx
-  host: 13.234.56.78.nip.io        # <-- replace with YOUR actual ELB IP from Step 1
+  host: 13.127.137.49.nip.io
   tls:
     enabled: true
     secretName: agritech-tls
