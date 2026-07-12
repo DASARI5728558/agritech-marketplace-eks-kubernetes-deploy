@@ -45,15 +45,15 @@ frontend:
 ingress:
   enabled: true
   className: nginx
-  host: dev.agritech-marketplace.local
+  host: api.yourdomain.com        # <-- replace with your real domain
   tls:
-    enabled: false
+    enabled: true
+    secretName: agritech-tls
 
 database:
   host: agritech-dev-mysql.xxxxxxxxxx.ap-south-1.rds.amazonaws.com
   port: 3306
   name: agritech_dev
-  # secretName references a Kubernetes Secret containing DB_USERNAME and DB_PASSWORD
   secretName: agritech-db-secret
 
 monitoring:
