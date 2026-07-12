@@ -45,7 +45,7 @@ frontend:
 ingress:
   enabled: true
   className: nginx
-  host: api.yourdomain.com        # <-- replace with your real domain
+  host: api.a7b0098791edb409f813d6baa5cdeca1-1972020766.ap-south-1.elb.amazonaws.com        # <-- replace with your real domain
   tls:
     enabled: true
     secretName: agritech-tls
